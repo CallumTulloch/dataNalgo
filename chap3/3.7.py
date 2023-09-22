@@ -3,7 +3,6 @@
 2. どこに＋を入れるかと，bit探索で実装できること思いつくこと．
 """
 
-
 import itertools
 
 def calc_sum(S):
