@@ -1,20 +1,20 @@
 """
-1からWを
+Wを実現できるか(制限なし)
+i-1番目だけでなく，今のステップを含んで更新すればよい．（8, 16, 24 のとき，24は，16を参照してよい．）
 """
+
 if __name__ =='__main__':
     N, W = map(int, input().split())
     A = list(map(int, input().split()))
-    dp = [[0]*(W+1) for i in range(N+1)]
+    dp = [[False]*(W+1) for i in range(N+1)]
     
     for i in range(N+1):
-        dp[i][0] = 1
+        dp[i][0] = True
     
     for i in range(1, N+1):
         for w in range(1, W+1):
             if w - A[i-1] >= 0:  # A[i-1] なのはdpのインデックスと合わせるため
-                dp[i][w] = dp[i-1][w - A[i-1]] + dp[i-1][w]
+                dp[i][w] = any([dp[i-1][w - A[i-1]], dp[i][w - A[i-1]], dp[i-1][w]])
             else:
                 dp[i][w] = dp[i-1][w]
-    # 1以上W未満の重みのそれぞれについて，　実現可能数を足し算する．
-    print(sum(dp[-1][1:W]))
-    print(dp)
+    print(dp[-1][-1])
