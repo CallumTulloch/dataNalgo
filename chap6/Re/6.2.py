@@ -10,7 +10,7 @@ sC = sorted(C)
 
 cnt = 0
 for b in sB:
-    num_a = bisect.bisect_left(b, sA)
-    num_c = len(C) - bisect(b, sC)
+    num_a = bisect.bisect_left(sA, b)
+    num_c = len(C) - bisect(sC, b)
     cnt += num_a * num_c
 print(cnt)

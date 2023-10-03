@@ -12,7 +12,7 @@
 #        C[j][i] = (Acc[i] - Acc[j]) / (i - j + 1)
 #
 ## ある地点 i における k 区切りでの最大を更新していく．j は i 番目で最大を見つける際に，それまでの番地での最大値として使用．
-#dp = [[-1]*K for _ in range(N)]
+#dp = [[-1]*K for _ in range(N)]  # [i][k]   iは位置，kは区切理の数 
 #for i in range(N):
 #    dp[i][0] = Acc[i] / (i+1)
 #
