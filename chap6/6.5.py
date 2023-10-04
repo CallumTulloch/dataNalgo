@@ -14,14 +14,24 @@ N = int(input())
 A = list(map(int, input().split()))
 B = list(map(int, input().split()))
 K = int(input(()))
-aA = sorted(A)
-aB = sorted(B)
+sA = sorted(A)
+sB = sorted(B)
 
-right = N
-left = 0
-mid = int(N/2)
-while (mid)**2 <= K <= (mid+1)**2:
-    mid = int(()/2)
+l = 0
+r = max(sA[-1], sB[-1])
+cnt = 0
+while r > l:
+    mid = int((r + l)/2)
+    for a in A:
+        idx = bisect.bisect(mid, [b / a for b in B])
+        cnt += idx
+    if K == cnt:
+        print(mid)
+        break
+    elif K > cnt:
+        l = mid
+    else:
+        r = mid
+    cnt = 0
 
-
-left = K - mid**2
+print(mid)
