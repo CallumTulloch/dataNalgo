@@ -26,7 +26,7 @@ while r > l:
         idx = bisect.bisect(mid, [b / a for b in B])
         cnt += idx
     if K == cnt:
-        print(mid)
+        print(
         break
     elif K > cnt:
         l = mid

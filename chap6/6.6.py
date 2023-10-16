@@ -6,13 +6,13 @@ INF = 10**16
 l = 0
 r = INF
 y = 0
-while 10**-6 < abs(100 - y):
+while 10**-6 <= abs(100 - y):
     mid = (r+l) / 2
     t = mid
     y = A * t + B * math.sin(C * t * math.pi)
-    print(y)
+    #print(y)
     if y == 100:
-        print(t)
+        #print(t)
         exit()
     elif y > 100:
         r = mid
