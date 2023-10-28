@@ -40,9 +40,9 @@ def max_average_partition(N, M, A):
     dp = [[-float('inf')]*(M+1) for _ in range(N+1)]
     dp[0][0] = 0
     for i in range(1, N+1):
-        for j in range(i):
-            for k in range(1, M+1):
-                dp[i][k] = max(dp[i][k], dp[j][k-1] + f[j][i])
+        for j in range(i):  # i-1(j)までの最適は求まっている．
+            for k in range(1, M+1): # k は分割数
+                dp[i][k] = max(dp[i][k], dp[j][k-1] + f[j][i])  # dp[i][k]はk=0からのものと比較のために必要．もし仮に分割数が決まっていないならdp[i]になる．
     print(dp)
     # 最終結果を計算
     return max(dp[N])

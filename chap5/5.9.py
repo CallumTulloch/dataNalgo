@@ -33,7 +33,7 @@ acc=[0]
 for a in A:
     acc.append(acc[-1] + a)
 
-# i番目からj番目までのスライムを合体させるための最小コストを保持します。
+# 一番最初は0で，dp更新のacc - accによって決めてもらう．
 dp = [[INF]*(N+1) for _ in range(N+1)]
 for i in range(N):
     dp[i][i+1] = 0

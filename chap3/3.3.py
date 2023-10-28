@@ -23,8 +23,8 @@ if __name__ == '__main__':
 """被ってはならない場合
 A = list(map(int, input().split()))
 
-mini = A[0]
-mini2 = A[1]
+mini = min(A[0], A[1])
+mini2 = max(A[0], A[1])
 for a in A:
     if a < mini:
         mini2 = mini

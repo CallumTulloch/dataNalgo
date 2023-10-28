@@ -6,6 +6,10 @@ N2個の整数のうち、x以下の値が K個以上あるかどうかを判定
 最小=0, 最大=a[-1]*b[-1] のなかから，xを見つける．
 aを固定し，そのaの値でb全体をわり，2分探索でx以下になるものの数を見つける．
 見つかった数がkの物が，求めるxの答えとなる．
+
+memo
+l = mid とするのは，lが必ずno, rが必ずyesになるというような状況の場合で，継続条件はright-left>1
+層でない場合は，mid-1 and mid+1で，条件はｋ，right>left である．
 """
 
 import bisect
@@ -26,12 +30,12 @@ while r > l:
         idx = bisect.bisect(mid, [b / a for b in B])
         cnt += idx
     if K == cnt:
-        print(
+        print()
         break
     elif K > cnt:
-        l = mid
+        l = mid + 1 
     else:
-        r = mid
+        r = mid - 1
     cnt = 0
 
 print(mid)
